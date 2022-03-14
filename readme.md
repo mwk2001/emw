@@ -7,5 +7,5 @@ users = [{
 "grade": 2
 },{
 "name": "Yumin",
-"grade": sk
+"grade": "sk"
 }]
