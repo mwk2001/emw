@@ -1,3 +1,7 @@
+const logo = document.getElementById("logo");
+logo.addEventListener("click", function () {
+  getText("list/welcome");
+});
 fetch("lists")
   .then((response) => response.text())
   .then((data) => {
@@ -6,7 +10,7 @@ fetch("lists")
     for (let i = 0; i < wbList.length; i++) {
       content += `<li><a href="#!${wbList[i]}" onclick="getText('list/${
         wbList[i]
-      }')">${wbList[i].toUpperCase()}</a></li>`;
+      }')">${capitalizeFirstLetter(wbList[i])}</a></li>`;
     }
     document.getElementById("list").innerHTML = content;
   })
@@ -23,4 +27,7 @@ if (location.hash) {
   getText("list/" + location.hash.substring(2));
 } else {
   getText("list/welcome");
+}
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
